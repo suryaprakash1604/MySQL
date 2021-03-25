@@ -73,3 +73,81 @@ mysql> SELECT * FROM worldcity;
 | Madrid         | Spain         | Europe        |    40.24 | N          |      3.41 | W        |
 +----------------+---------------+---------------+----------+------------+-----------+----------+
 30 rows in set (0.00 sec)
+
+1)mysql> SELECT DISTINCT COUNTRY,CONTINENT FROM WORLDCITY;
++---------------+---------------+
+| COUNTRY       | CONTINENT     |
++---------------+---------------+
+| Greece        | Europe        |
+| United States | North America |
+| Canada        | North America |
+| Poland        | Europe        |
+| Peru          | South America |
+| Brazil        | South America |
+| Chile         | South America |
+| Colombia      | South America |
+| Argentina     | South America |
+| Ecuador       | South America |
+| Venezuela     | South America |
+| India         | Asia          |
+| England       | Europe        |
+| Russia        | Europe        |
+| France        | Europe        |
+| China         | Asia          |
+| Egypt         | Africa        |
+| Lybia         | Africa        |
+| Italy         | Europe        |
+| Japan         | Asia          |
+| Australia     | Australia     |
+| Spain         | Europe        |
++---------------+---------------+
+22 rows in set (0.04 sec)
+
+2)mysql> SELECT CITY,COUNTRY FROM WORLDCITY WHERE CITY LIKE 'R%';
++----------------+---------+
+| CITY           | COUNTRY |
++----------------+---------+
+| Rio De Janeiro | Brazil  |
+| Rome           | Italy   |
++----------------+---------+
+2 rows in set (0.00 sec)
+
+3)mysql> SELECT CITY,COUNTRY FROM WORLDCITY WHERE CITY LIKE '%A';
++----------+---------------+
+| CITY     | COUNTRY       |
++----------+---------------+
+| Atlanta  | United States |
+| Victoria | Canada        |
+| Lima     | Peru          |
+| Bogota   | Colombia      |
+| Sparta   | Greece        |
++----------+---------------+
+5 rows in set (0.00 sec)
+
+4)mysql> SELECT CITY,COUNTRY FROM WORLDCITY WHERE(CITY LIKE 'M%' AND LENGTH(CITY)=6);
++--------+---------+
+| CITY   | COUNTRY |
++--------+---------+
+| Madras | India   |
+| Moscow | Russia  |
+| Madrid | Spain   |
++--------+---------+
+3 rows in set (0.00 sec)
+
+5)mysql> SELECT CITY,COUNTRY FROM WORLDCITY WHERE CITY LIKE '_A%';
++------------+---------------+
+| CITY       | COUNTRY       |
++------------+---------------+
+| Dallas     | United States |
+| Nashville  | United states |
+| Vancouver  | Canada        |
+| Warsaw     | Poland        |
+| Santiago   | Chile         |
+| Caracas    | Venezuela     |
+| Madras     | India         |
+| Manchester | England       |
+| Paris      | France        |
+| Cairo      | Egypt         |
+| Madrid     | Spain         |
++------------+---------------+
+11 rows in set (0.00 sec)
