@@ -1,0 +1,75 @@
+mysql> CREATE TABLE WORLDCITY
+    -> (City varchar(20),
+    ->  Country varchar(20),
+    ->  Continent varchar(25),
+    ->  Latitude DECIMAL(6,2),
+    ->  NorthSouth varchar(5),
+    ->  Longitude DECIMAL(6,2),
+    ->  EastWest varchar(5)
+    -> );
+Query OK, 0 rows affected (1.00 sec)
+
+mysql> INSERT INTO worldcity VALUES('Athens','Greece','Europe',37.59,'N',23.44,'E');
+Query OK, 1 row affected (0.19 sec)
+
+mysql> INSERT INTO worldcity VALUES('Atlanta','United States','North America',32.45,'N',84.23,'W'),('Dallas','United States','North America',32.47,'N',96.47,'W'),('Nashville','United states','North America',36.09,'N',86.46,'W');
+Query OK, 3 rows affected (0.12 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO worldcity VALUES('Victoria','Canada','North America',48.25,'N',123.21,'W'),('Peterborough','Canada','North America',44.18,'N',79.18,'W'),('Vancouver','Canada','North America',49.18,'N',123.04,'W'),('Toledo','United States','North America',41.39,'N',83.82,'W');
+Query OK, 4 rows affected (0.14 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO worldcity VALUES('Warsaw','Poland','Europe',52.15,'N',21.00,'E'),('Lima','Peru','South America',12.03,'S',77.03,'W'),('Rio De Janeiro','Brazil','South America',22.43,'S',43.13,'W'),('Santiago','Chile','South America',33.27,'S',70.40,'W'),('Bogota','Colombia','South America',04.36,'N',74.05,'W');
+Query OK, 5 rows affected (0.12 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO worldcity VALUES('Buenos Aires','Argentina','South America',34.36,'S',58.28,'W'),('Quito','Ecuador','South America',00.13,'S',78.30,'W'),('Caracas','Venezuela','South America',10.30,'N',66.56,'W'),('Madras','India','Asia',28.36,'N',77.12,'E'),('Bombay','India','Asia',18.58,'N',72.50,'E');
+Query OK, 5 rows affected (0.09 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO worldcity VALUES('Manchester','England','Europe',51.30,'N',0.0,'null'),('Moscow','Russia','Europe',55.45,'N',37.35,'E'),('Paris','France','Europe',48.52,'N',2.20,'E'),('Shenyang','China','Asia',41.48,'N',123.27,'E'),('Cairo','Egypt','Africa',30.03,'N',31.15,'E'),('Tripoli','Lybia','Africa',32.54,'N',13.11,'E');
+Query OK, 6 rows affected (0.10 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO worldcity VALUES('Beijing','China','Asia',39.56,'N',116.24,'E'),('Rome','Italy','Europe',41.54,'N',12.29,'E'),('Tokyo','Japan','Asia',35.42,'N',139.46,'E'),('Sydney','Australia','Australia',33.52,'S',151.13,'E'),('Sparta','Greece','Europe',37.05,'N',22.27,'E'),('Madrid','Spain','Europe',40.24,'N',3.41,'W');
+Query OK, 6 rows affected (0.19 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+
+mysql> SELECT * FROM worldcity;
++----------------+---------------+---------------+----------+------------+-----------+----------+
+| City           | Country       | Continent     | Latitude | NorthSouth | Longitude | EastWest |
++----------------+---------------+---------------+----------+------------+-----------+----------+
+| Athens         | Greece        | Europe        |    37.59 | N          |     23.44 | E        |
+| Atlanta        | United States | North America |    32.45 | N          |     84.23 | W        |
+| Dallas         | United States | North America |    32.47 | N          |     96.47 | W        |
+| Nashville      | United states | North America |    36.09 | N          |     86.46 | W        |
+| Victoria       | Canada        | North America |    48.25 | N          |    123.21 | W        |
+| Peterborough   | Canada        | North America |    44.18 | N          |     79.18 | W        |
+| Vancouver      | Canada        | North America |    49.18 | N          |    123.04 | W        |
+| Toledo         | United States | North America |    41.39 | N          |     83.82 | W        |
+| Warsaw         | Poland        | Europe        |    52.15 | N          |     21.00 | E        |
+| Lima           | Peru          | South America |    12.03 | S          |     77.03 | W        |
+| Rio De Janeiro | Brazil        | South America |    22.43 | S          |     43.13 | W        |
+| Santiago       | Chile         | South America |    33.27 | S          |     70.40 | W        |
+| Bogota         | Colombia      | South America |     4.36 | N          |     74.05 | W        |
+| Buenos Aires   | Argentina     | South America |    34.36 | S          |     58.28 | W        |
+| Quito          | Ecuador       | South America |     0.13 | S          |     78.30 | W        |
+| Caracas        | Venezuela     | South America |    10.30 | N          |     66.56 | W        |
+| Madras         | India         | Asia          |    28.36 | N          |     77.12 | E        |
+| Bombay         | India         | Asia          |    18.58 | N          |     72.50 | E        |
+| Manchester     | England       | Europe        |    51.30 | N          |      0.00 | null     |
+| Moscow         | Russia        | Europe        |    55.45 | N          |     37.35 | E        |
+| Paris          | France        | Europe        |    48.52 | N          |      2.20 | E        |
+| Shenyang       | China         | Asia          |    41.48 | N          |    123.27 | E        |
+| Cairo          | Egypt         | Africa        |    30.03 | N          |     31.15 | E        |
+| Tripoli        | Lybia         | Africa        |    32.54 | N          |     13.11 | E        |
+| Beijing        | China         | Asia          |    39.56 | N          |    116.24 | E        |
+| Rome           | Italy         | Europe        |    41.54 | N          |     12.29 | E        |
+| Tokyo          | Japan         | Asia          |    35.42 | N          |    139.46 | E        |
+| Sydney         | Australia     | Australia     |    33.52 | S          |    151.13 | E        |
+| Sparta         | Greece        | Europe        |    37.05 | N          |     22.27 | E        |
+| Madrid         | Spain         | Europe        |    40.24 | N          |      3.41 | W        |
++----------------+---------------+---------------+----------+------------+-----------+----------+
+30 rows in set (0.00 sec)

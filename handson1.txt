@@ -1,0 +1,198 @@
+a)
+
+mysql> create database Handson;
+Query OK, 1 row affected (0.23 sec)
+
+mysql> use Handson;
+Database changed
+
+mysql>  CREATE TABLE PROGRAMMER(EmpNo numeric(5) not null,ProjId varchar(5),LastName varchar(30),FirstName varchar(30),HireDate DATE,Language varchar(15),TaskNo numeric(2),Privilege varchar(25));
+Query OK, 0 rows affected (5.20 sec)
+
+b)
+
+mysql> INSERT INTO PROGRAMMER VALUES(201,'NPR','Gupta','Saurav','1995/1/1','VB',52,'Secret');
+Query OK, 1 row affected (0.18 sec)
+
+mysql>  INSERT INTO PROGRAMMER VALUES(390,'KCW','Ghosh','Pinky','1993/1/05','Java',11,'Top Secret');
+Query OK, 1 row affected (0.14 sec)
+
+mysql>  INSERT INTO PROGRAMMER VALUES(789,'Rnc','Agarwal','Praveen','1998/08/31','VB',11,'Secret'),(134,'TIPPS','Chaudhury','Supriyo','1995/07/15','C++',52,'Secret');
+Query OK, 2 rows affected (0.32 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql>  INSERT INTO PROGRAMMER VALUES(896,'KCW','Jha','Ranjit','1997/06/15','Java',10,'Top Secret'),(345,'TIPPS','John','Peter','1999/11/15','Java',52,''),(563,'NITS','Anderson','Andy','1994/08/15','C++',89,'Confidential');
+Query OK, 3 rows affected (0.12 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+c)
+
+mysql> Create table WEATHER(City varchar(30),State varchar(30),High numeric(5),Low numeric(5));
+Query OK, 0 rows affected (1.93 sec)
+
+mysql> insert into WEATHER values('Calcutta','West Bengal',105,90),('Trivandaram','Kerala',101,92),('Mumbai','Maharashtra',88,69),('Bangalore','Karnataka',77,60),('New Delhi','',80,72);
+Query OK, 5 rows affected (0.21 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+d)
+
+mysql> create table BOOKS(BookId numeric(4),Title varchar(10),TopicId varchar(10),PublisherName varchar(30),PlaceofPublication varchar(20),Price numeric(5),PurchaseDate Date,ShelfNo varchar(5));
+Query OK, 0 rows affected (2.04 sec)
+
+mysql> insert into BOOKS values(8293,'DBMS','DB1','Prentice Hall','Mumbai',255,'1995/1/1','S11');
+Query OK, 1 row affected (0.18 sec)
+
+mysql> insert into BOOKS values(5645,'DBMS','DB1','Pearson Education','Mumbai',655,'1993/1/05','S12'),(6565,'C','C1','TMH','Mumbai',840,'1998/08/31','S66'),(6567,'C++','Cplus1','ABC Publishers','Delhi',300,'1995/07/15','S77'),(4576,'JAVA','JAVA1','Guru Govind Publications','Delhi',500,'1997/06/15','S87'),(3433,'OOPS','OOPS1','Dave Publishers','Pune',600,'1999/11/15','S56'),(4655,'SAD','SAD1','Sajan Publications','Cochin',700,'1994/08/15','S76');
+Query OK, 6 rows affected (0.16 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+e)
+
+mysql> update programmer set ProjId='NITS' where EmpNo=201;
+Query OK, 1 row affected (0.22 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update programmer set Language='C++' where EmpNo=201;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update Books set ShelfNo='S10' where Title='DBMS';
+Query OK, 2 rows affected (0.15 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> DELETE FROM PROGRAMMER WHERE FirstName='Supriyo';
+Query OK, 1 row affected (0.17 sec)
+
+mysql> Alter table WEATHER ADD nature varchar(20);
+Query OK, 0 rows affected (1.99 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DROP TABLE WEATHER;
+Query OK, 0 rows affected (1.20 sec)
+
+f)
+//CUSTOMER TABLE
+
+mysql> CREATE TABLE CUSTOMER(CUSTID numeric(5) not null,FNAME varchar(30),LNAME varchar(30),ADDRESS varchar(50),PHONENO numeric(15) not null,CITY varchar(20),COUNTRY varchar(20),DATEFIRSTPURCHASED date,SUPPLIERID numeric(5) NOT NULL,PRIMARY KEY(CUSTID,SUPPLIERID));
+Query OK, 0 rows affected (0.60 sec)
+
+mysql>  insert into customer values(1001,'Das','Jeyaseelan','119,park Avenue,II street',9841093428,'Coimbatore','India','2004/01/10',1);
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into customer values(2001,'Gopi','Govindraj','241,I floor,Kamaraj street,Madippakam',9444124590,'Chennai','India','2005/03/25',4),(1201,'Dilip','Kishore','43,II Avenue,Anna Nagar',9997234534,'Bangalore','India','2004/08/20',2);
+Query OK, 2 rows affected (0.11 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into customer values(1300,'Aanand','Chowdhury','42/1 sector 1,II Street',9841054348,'Bangalore','India','2005/05/15',2),(1220,'Chandra','Nagarajan','83, lal bagh',98410672356,'Bangalore','India','2006/02/12',4);
+Query OK, 2 rows affected (0.13 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql>  insert into customer values(1221,'Abhishek','Kumar','13,kishori park',94447623901,'Chennai','India','2004/05/15',1),(1320,'Nikhil','Pandit','218, alwaanya street',94448923091,'Salem','India','2006/04/21',3),(1222,'Meenu','Monica','C11, church road',98410563421,'Trichy','India','2004/08/30',1),(1225,'Pavan','Kumar','128/A, North Mada Street',99934782103,'madhurai','India','2004/08/18',4);
+Query OK, 4 rows affected (0.12 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+//SUPPLIER TABLE
+
+mysql> create table SUPPLIER(SUPPLIERID numeric(5),SNAME varchar(30),SCITY varchar(30),SPHONE numeric(10)Not Null,EMAIL varchar(50),PRIMARY KEY(SUPPLIERID),UNIQUE(EMAIL));
+Query OK, 0 rows affected (1.66 sec)
+
+mysql> INSERT INTO SUPPLIER VALUES(1,'Dilip','Chennai',8999900000,'dilip@abc.co.in'),(2,'Tarun','Madurai',8999911111,'tarun@xyz.com'),(3,'Naresh','Coimbatore',8999922222,'g.naresh@xyzl.com'),(4,'Ganesan','Trichy',8999933333,'Ganesan_83@ijk.com');
+Query OK, 4 rows affected (0.20 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+//ORDERS TABLE
+
+mysql> create table ORDERS(ORDERID numeric(5) not null,ORDERDATE date,CUSTID numeric(5),QUANTITY numeric(5),ITEMID numeric(5) not null,PRIMARY KEY(ORDERID,ITEMID),CONSTRAINT chk_ORDERS CHECK(QUANTITY>0));
+Query OK, 0 rows affected (0.82 sec)
+
+mysql> insert into ORDERS values(1,'2004/01/12',1001,30,25),(2,'2005/05/06',1202,38,24),(3,'2006/12/16',1220,10,22),(4,'2004/05/21',1233,12,21);
+Query OK, 4 rows affected (0.21 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+//ITEMS TABLE
+
+mysql> create table ITEMS(ITEMID numeric(5) not null,ITEMNAME varchar(35) not null,SUPPLIERID numeric(5) not null,MINQTY numeric(5) not null,MAXQTY numeric(5) not null,PRIMARY KEY(ITEMID,SUPPLIERID));
+Query OK, 0 rows affected (0.73 sec)
+
+
+mysql> insert into ITEMS values(20,'Pears Soap',4,7,20,30.00),(21,'V.V.D Coconut oil 200ml',2,8,15,79.00);
+Query OK, 2 rows affected (0.14 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into ITEMS values(22,'Ponds powder 400g',3,6,25,106.00),(23,'Reynolds pen-blue',1,10,30,15.00),(24,'Reynolds pen-black',1,7,25,16.00),(25,'Mysore sandal soap',4,7,25,25.00),(26,'Fair & lovely cream-50g',3,5,15,55.00),(27,'Rexono deo spray',2,5,20,100.00),(28,'Dove soap',4,7,15,85.00);
+Query OK, 7 rows affected (0.11 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+g)
+
+mysql> SELECT FNAME,CITY FROM CUSTOMER WHERE CITY='Chennai';
++----------+---------+
+| FNAME    | CITY    |
++----------+---------+
+| Abhishek | Chennai |
+| Gopi     | Chennai |
++----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT FNAME,LNAME,SUPPLIERID FROM CUSTOMER WHERE SUPPLIERID=2;
++--------+-----------+------------+
+| FNAME  | LNAME     | SUPPLIERID |
++--------+-----------+------------+
+| Dilip  | Kishore   |          2 |
+| Aanand | Chowdhury |          2 |
++--------+-----------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT SNAME,SCITY,SPHONE,EMAIL FROM SUPPLIER WHERE SCITY='Coimbatore';
++--------+------------+------------+-------------------+
+| SNAME  | SCITY      | SPHONE     | EMAIL             |
++--------+------------+------------+-------------------+
+| Naresh | Coimbatore | 8999922222 | g.naresh@xyzl.com |
++--------+------------+------------+-------------------+
+1 row in set (0.05 sec)
+
+mysql> SELECT SNAME,SCITY,SPHONE,EMAIL FROM SUPPLIER WHERE SNAME LIKE'G%';
++---------+--------+------------+--------------------+
+| SNAME   | SCITY  | SPHONE     | EMAIL              |
++---------+--------+------------+--------------------+
+| Ganesan | Trichy | 8999933333 | Ganesan_83@ijk.com |
++---------+--------+------------+--------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT FNAME,LNAME FROM CUSTOMER WHERE LNAME NOT LIKE'%E%';
++----------+-----------+
+| FNAME    | LNAME     |
++----------+-----------+
+| Chandra  | Nagarajan |
+| Abhishek | Kumar     |
+| Meenu    | Monica    |
+| Pavan    | Kumar     |
+| Aanand   | Chowdhury |
+| Nikhil   | Pandit    |
+| Gopi     | Govindraj |
++----------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT ORDERID,ORDERDATE,CUSTID,QUANTITY FROM ORDERS WHERE QUANTITY<35;
++---------+------------+--------+----------+
+| ORDERID | ORDERDATE  | CUSTID | QUANTITY |
++---------+------------+--------+----------+
+|       1 | 2004-01-12 |   1001 |       30 |
+|       3 | 2006-12-16 |   1220 |       10 |
+|       4 | 2004-05-21 |   1233 |       12 |
++---------+------------+--------+----------+
+3 rows in set (0.02 sec)
+
+mysql> SELECT ITEMID,ITEMNAME,SUPPLIERID FROM ITEMS WHERE SUPPLIERID=4;
++--------+--------------------+------------+
+| ITEMID | ITEMNAME           | SUPPLIERID |
++--------+--------------------+------------+
+|     20 | Pears Soap         |          4 |
+|     25 | Mysore sandal soap |          4 |
+|     28 | Dove soap          |          4 |
++--------+--------------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM ITEMS WHERE (SUPPLIERID=3 AND MINQTY>7);
+Empty set (0.00 sec)
+
